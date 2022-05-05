@@ -37,7 +37,7 @@ const mergedTypeDefs = mergeSchemas(
 	[
 		'scalar JSON',
 		roomTypeDef,
-    reportTypeDef,
+    	reportTypeDef,
 		sesionTypeDef,
 		searchTypeDef
 	],
@@ -45,12 +45,12 @@ const mergedTypeDefs = mergeSchemas(
 		roomQueries,
 		searchQueries,
 		sesionQueries,
-    reportQueries
+    	reportQueries
 	],
 	[
 		roomMutations,
-		sesionMutations
-    reportMutations,
+		sesionMutations,
+    	reportMutations,
 	]
 );
 
@@ -60,7 +60,7 @@ export default makeExecutableSchema({
 	resolvers: merge(
 		{ JSON: GraphQLJSON }, // allows scalar JSON
 		roomResolvers,
-		sesionResolvers
+		sesionResolvers,
 		reportResolvers
 	)
 });
