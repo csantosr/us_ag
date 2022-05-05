@@ -10,19 +10,25 @@ import {
 	roomTypeDef
 } from './us_streamchat/rooms/typeDefs';
 
+import { streamMutations, streamQueries, streamTypeDef } from './us_stream/typeDefs';
+
 import roomResolvers from './us_streamchat/rooms/resolvers';
+import streamResolvers from './us_stream/resolvers';
 
 // merge the typeDefs
 const mergedTypeDefs = mergeSchemas(
 	[
 		'scalar JSON',
-		roomTypeDef
+		roomTypeDef,
+		streamTypeDef
 	],
 	[
-		roomQueries
+		roomQueries,
+		streamQueries
 	],
 	[
-		roomMutations
+		roomMutations,
+		streamMutations
 	]
 );
 
@@ -31,6 +37,7 @@ export default makeExecutableSchema({
 	typeDefs: mergedTypeDefs,
 	resolvers: merge(
 		{ JSON: GraphQLJSON }, // allows scalar JSON
-		roomResolvers
+		roomResolvers, 
+		streamResolvers,
 	)
 });
