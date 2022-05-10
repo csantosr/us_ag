@@ -14,23 +14,23 @@ type User {
   UserName: String 
 }
 input ValidateUserInput {
-  Email: String 
-  Password: String 
+  email: String!
+  password: String! 
 }
-type Token {
-  Token: String
+type token {
+  token: String!
 }
 input NewPasswordInput {
-  Email: String 
-  Password: String 
-  RePassword: String 
+  Email: String!
+  Password: String!
+  RePassword: String!
 }
-type Ok {
-  Ok: String 
+type ok {
+  ok: String 
 }
 input ValidateTokenInput {
-  Email: String 
-  Token: String 
+  Email: String! 
+  Token: String! 
 }`;
 
 export const sesionQueries = `
@@ -38,10 +38,10 @@ export const sesionQueries = `
 `;
 
 export const sesionMutations = `
-  CreateUser(user: CreateUserInput!): Token!
-  ValidateUser(req: ValidateUserInput!): Token!
-  ValidateToken(req: ValidateTokenInput!): Token!
-  NewPassword(req: NewPasswordInput!): Ok!
+  CreateUser(CreateUserRequest: CreateUserInput!): token!
+  ValidateUser(ValidateUserRequest: ValidateUserInput!): token!
+  ValidateToken(ValidateTokenRequest: ValidateTokenInput!): token!
+  NewPassword(NewPasswordRequest: NewPasswordInput!): ok!
 `;
 
 /*

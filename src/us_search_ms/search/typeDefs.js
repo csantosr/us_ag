@@ -5,5 +5,5 @@ export const searchTypeDef = `
   }`;
 
 export const searchQueries = `
-    searchByTerm(term: String!): Results
+    search(username: String!): Results
 `;

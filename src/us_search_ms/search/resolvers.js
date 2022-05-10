@@ -5,8 +5,8 @@ const URL = `http://${url}:${port}/${entryPoint}`;
 
 const resolvers = {
 	Query: {
-		search: (_, { term }) =>
-			generalRequest(`${URL}/${term}`, 'GET'),
+		search: (_, { username }) =>
+			generalRequest(`${URL}/${username}`, 'GET'),
 	}
 };
 
