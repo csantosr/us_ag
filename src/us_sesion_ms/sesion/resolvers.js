@@ -9,14 +9,14 @@ const resolvers = {
 			generalRequest(`${URL}/user/${id}`, 'GET'),
 	},
 	Mutation: {
-		CreateUser: (_, { user }) =>
-			generalRequest(`${URL}/newuser`, 'POST', user),
-		NewPassword: (_, { newpasswordreq }) =>
-			generalRequest(`${URL}/repassword`, 'PUT', newpasswordreq),
-		ValidateUser: (_, { validateuserreq }) =>
-			generalRequest(`${URL}/auth`, 'PUT', validateuserreq),
-		ValidateToken: (_, { validatetokenreq }) =>
-			generalRequest(`${URL}/validate`, 'PUT', validatetokenreq),
+		CreateUser: (_, { CreateUserRequest }) =>
+			generalRequest(`${URL}/newuser`, 'POST', CreateUserRequest),
+		NewPassword: (_, { NewPasswordRequest }) =>
+			generalRequest(`${URL}/repassword`, 'PUT', NewPasswordRequest),
+		ValidateUser: (_, { ValidateUserRequest }) =>
+			generalRequest(`${URL}/auth`, 'PUT', ValidateUserRequest),
+		ValidateToken: (_, { ValidateTokenRequest }) =>
+			generalRequest(`${URL}/validate`, 'PUT', ValidateTokenRequest),
 	}    
 };
 
