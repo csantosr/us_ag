@@ -49,8 +49,8 @@ const mergedTypeDefs = mergeSchemas(
 	],
 	[
 		roomMutations,
-		sesionMutations
-    reportMutations,
+		sesionMutations,
+    	reportMutations,
 	]
 );
 
@@ -60,7 +60,7 @@ export default makeExecutableSchema({
 	resolvers: merge(
 		{ JSON: GraphQLJSON }, // allows scalar JSON
 		roomResolvers,
-		sesionResolvers
+		sesionResolvers,
 		reportResolvers
 	)
 });
