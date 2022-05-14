@@ -20,7 +20,12 @@ import {
 	searchTypeDef
 } from './us_search_ms/search/typeDefs';
 
+import { streamMutations, streamQueries, streamTypeDef } from './us_stream/typeDefs';
+
 import roomResolvers from './us_streamchat/rooms/resolvers';
+
+import streamResolvers from './us_stream/resolvers';
+
 import sesionResolvers from './us_sesion_ms/sesion/resolvers';
 import searchResolvers from './us_search_ms/search/resolvers';
 
@@ -37,20 +42,23 @@ const mergedTypeDefs = mergeSchemas(
 	[
 		'scalar JSON',
 		roomTypeDef,
-    reportTypeDef,
+		streamTypeDef,
+    	reportTypeDef,
 		sesionTypeDef,
 		searchTypeDef
 	],
 	[
 		roomQueries,
-		searchQueries,
+		streamQueries,
+    	searchQueries,
 		sesionQueries,
-    reportQueries
+   		reportQueries
 	],
 	[
 		roomMutations,
+		streamMutations,
 		sesionMutations,
-    	reportMutations,
+		reportMutations,
 	]
 );
 
@@ -59,8 +67,10 @@ export default makeExecutableSchema({
 	typeDefs: mergedTypeDefs,
 	resolvers: merge(
 		{ JSON: GraphQLJSON }, // allows scalar JSON
-		roomResolvers,
-		sesionResolvers,
-		reportResolvers
+		roomResolvers, 
+		streamResolvers,
+    	sesionResolvers,
+		reportResolvers,
+		searchResolvers,
 	)
 });
