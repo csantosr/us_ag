@@ -8,40 +8,55 @@ input CreateUserInput {
 type GetUserInput {
   Id: String
 }
+type GetIdInput {
+	UserName: String
+}
+type Id {
+	id: String!
+}
 type User {
-  Email: String 
-  Status: String 
-  UserName: String 
+  email: String 
+  status: String 
+  username: String 
 }
 input ValidateUserInput {
-  Email: String 
-  Password: String 
+  email: String!
+  password: String! 
 }
-type Token {
-  Token: String
+type token {
+  token: String!
 }
 input NewPasswordInput {
-  Email: String 
-  Password: String 
-  RePassword: String 
+  Email: String!
+  Password: String!
+  RePassword: String!
 }
-type Ok {
-  Ok: String 
+type ok {
+  ok: String 
+}
+type Users {
+	username1: String
+	username2: String
+	username3: String
+	username4: String
+	username5: String 
 }
 input ValidateTokenInput {
-  Email: String 
-  Token: String 
+  Email: String! 
+  Token: String! 
 }`;
 
 export const sesionQueries = `
   GetUser(id: String!): User!
+  GetId(username: String!): Id!
+  GetUsers: Users!
 `;
 
 export const sesionMutations = `
-  CreateUser(user: CreateUserInput!): Token!
-  ValidateUser(req: ValidateUserInput!): Token!
-  ValidateToken(req: ValidateTokenInput!): Token!
-  NewPassword(req: NewPasswordInput!): Ok!
+  CreateUser(CreateUserRequest: CreateUserInput!): token!
+  ValidateUser(ValidateUserRequest: ValidateUserInput!): token!
+  ValidateToken(ValidateTokenRequest: ValidateTokenInput!): token!
+  NewPassword(NewPasswordRequest: NewPasswordInput!): ok!
 `;
 
 /*
