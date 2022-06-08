@@ -8,10 +8,16 @@ input CreateUserInput {
 type GetUserInput {
   Id: String
 }
+type GetIdInput {
+	UserName: String
+}
+type Id {
+	id: String!
+}
 type User {
-  Email: String 
-  Status: String 
-  UserName: String 
+  email: String 
+  status: String 
+  username: String 
 }
 input ValidateUserInput {
   email: String!
@@ -28,6 +34,13 @@ input NewPasswordInput {
 type ok {
   ok: String 
 }
+type Users {
+	username1: String
+	username2: String
+	username3: String
+	username4: String
+	username5: String 
+}
 input ValidateTokenInput {
   Email: String! 
   Token: String! 
@@ -35,6 +48,8 @@ input ValidateTokenInput {
 
 export const sesionQueries = `
   GetUser(id: String!): User!
+  GetId(username: String!): Id!
+  GetUsers: Users!
 `;
 
 export const sesionMutations = `

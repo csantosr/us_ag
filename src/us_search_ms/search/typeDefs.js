@@ -1,9 +1,9 @@
 export const searchTypeDef = `
-  type res {
+  type results {
     users: [String]
     categories: [String]
   }`;
 
 export const searchQueries = `
-    search(username: String!): res
+    search(username: String!): results
 `;

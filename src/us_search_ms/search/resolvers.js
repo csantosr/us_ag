@@ -5,7 +5,7 @@ const URL = `http://${url}:${port}/${entryPoint}`;
 
 const resolvers = {
 	Query: {
-		seagrch: (_, { username }) =>
+		search: (_, { username }) =>
 			generalRequest(`${URL}/${username}`, 'GET'),
 	}
 };
